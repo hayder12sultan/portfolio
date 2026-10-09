@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20 Button Designs</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f4f5f7;
+        color: #222;
+        padding: 3rem 1.5rem;
+        min-height: 100vh;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+        font-weight: 600;
+        color: #131111;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .cell {
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.75rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .cell:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Shared base */
+      button {
+        font-family: inherit;
+        font-size: 0.95rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        padding: 0.7rem 1.4rem;
+        transition: all 0.25s ease;
+      }
+
+      /* 1. Solid */
+      .btn-1 {
+        background: #4f46e5;
+        color: #fff;
+        border-radius: 8px;
+      }
+      .btn-1:hover {
+        background: #4338ca;
+      }
+
+      /* 2. Outline */
+      .btn-2 {
+        background: transparent;
+        color: #4f46e5;
+        border: 2px solid #4f46e5;
+        border-radius: 8px;
+      }
+      .btn-2:hover {
+        background: #4f46e5;
+        color: #fff;
+      }
+
+      /* 3. Pill */
+      .btn-3 {
+        background: #ec4899;
+        color: #fff;
+        border-radius: 999px;
+        padding: 0.7rem 1.6rem;
+      }
+      .btn-3:hover {
+        background: #db2777;
+      }
+
+      /* 4. Ghost */
+      .btn-4 {
+        background: transparent;
+        color: #6b7280;
+        border-radius: 8px;
+      }
+      .btn-4:hover {
+        background: #f3f4f6;
+        color: #111;
+      }
+
+      /* 5. Gradient */
+      .btn-5 {
+        background: linear-gradient(135deg, #6366f1, #ec4899);
+        color: #fff;
+        border-radius: 8px;
+      }
+      .btn-5:hover {
+        opacity: 0.9;
+      }
+
+      /* 6. Shadow / Lift */
+      .btn-6 {
+        background: #fff;
+        color: #111;
+        border-radius: 8px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+      }
+      .btn-6:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* 7. 3D push */
+      .btn-7 {
+        background: #10b981;
+        color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 5px 0 #059669;
+        transform: translateY(-2px);
+      }
+      .btn-7:hover {
+        transform: translateY(0);
+        box-shadow: 0 2px 0 #059669;
+      }
+      .btn-7:active {
+        transform: translateY(3px);
+        box-shadow: 0 0 0 #059669;
+      }
+
+      /* 8. Neumorphic */
+      .btn-8 {
+        background: #f4f5f7;
+        color: #4b5563;
+        border-radius: 12px;
+        box-shadow:
+          6px 6px 12px #d1d3d8,
+          -6px -6px 12px #ffffff;
+      }
+      .btn-8:hover {
+        box-shadow:
+          inset 4px 4px 8px #d1d3d8,
+          inset -4px -4px 8px #ffffff;
+      }
+
+      /* 9. Underline */
+      .btn-9 {
+        background: transparent;
+        color: #111;
+        border-radius: 0;
+        padding: 0.5rem 0.2rem;
+        border-bottom: 2px solid #111;
+      }
+      .btn-9:hover {
+        color: #4f46e5;
+        border-color: #4f46e5;
+      }
+
+      /* 10. Dashed outline */
+      .btn-10 {
+        background: transparent;
+        color: #6b7280;
+        border: 2px dashed #9ca3af;
+        border-radius: 8px;
+      }
+      .btn-10:hover {
+        border-color: #4f46e5;
+        color: #4f46e5;
+      }
+
+      /* 11. Dark */
+      .btn-11 {
+        background: #111827;
+        color: #fff;
+        border-radius: 8px;
+      }
+      .btn-11:hover {
+        background: #000;
+      }
+
+      /* 12. Soft pastel */
+      .btn-12 {
+        background: #326fbf;
+        color: #1e40af;
+        border-radius: 8px;
+      }
+      .btn-12:hover {
+        background: #bfdbfe;
+      }
+
+      /* 13. Glass */
+      .btn-13 {
+        background: rgba(255, 255, 255, 0.3);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+      }
+      .cell:has(.btn-13) {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+      }
+      .btn-13:hover {
+        background: rgba(255, 255, 255, 0.45);
+      }
+
+      /* 14. Icon + text */
+      .btn-14 {
+        background: #4f46e5;
+        color: #fff;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .btn-14:hover {
+        background: #4338ca;
+      }
+      .btn-14 svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* 15. Loading dot */
+      .btn-15 {
+        background: #f59e0b;
+        color: #fff;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .btn-15:hover {
+        background: #d97706;
+      }
+      .btn-15::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #fff;
+        animation: pulse 1.2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      /* 16. Skew / Angled */
+      .btn-16 {
+        background: #ef4444;
+        color: #fff;
+        border-radius: 4px;
+        transform: skewX(-10deg);
+      }
+      .btn-16 span {
+        display: inline-block;
+        transform: skewX(10deg);
+      }
+      .btn-16:hover {
+        background: #dc2626;
+      }
+
+      /* 17. Brutalist */
+      .btn-17 {
+        background: #fde047;
+        color: #000;
+        border: 2px solid #000;
+        border-radius: 0;
+        box-shadow: 4px 4px 0 #000;
+        font-weight: 700;
+      }
+      .btn-17:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 #000;
+      }
+
+      /* 18. Glow */
+      .btn-18 {
+        background: #06b6d4;
+        color: #fff;
+        border-radius: 8px;
+      }
+      .btn-18:hover {
+        box-shadow:
+          0 0 20px rgba(6, 182, 212, 0.7),
+          0 0 40px rgba(6, 182, 212, 0.4);
+      }
+
+      /* 19. Text + arrow */
+      .btn-19 {
+        background: transparent;
+        color: #111;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.6rem 0.8rem;
+      }
+      .btn-19::after {
+        content: "→";
+        transition: transform 0.25s;
+      }
+      .btn-19:hover::after {
+        transform: translateX(4px);
+      }
+
+      /* 20. Split / Duo-tone */
+      .btn-20 {
+        background: linear-gradient(90deg, #4f46e5 50%, #fff 50%);
+        color: #4f46e5;
+        border: 2px solid #4f46e5;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+      .btn-20:hover {
+        background: linear-gradient(90deg, #4f46e5 100%, #fff 0%);
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>20 Button Designs</h1>
+
+    <div class="grid">
+      <div class="cell"><button class="btn-1">Solid</button></div>
+      <div class="cell"><button class="btn-2">Outline</button></div>
+      <div class="cell"><button class="btn-3">Pill</button></div>
+      <div class="cell"><button class="btn-4">Ghost</button></div>
+      <div class="cell"><button class="btn-5">Gradient</button></div>
+      <div class="cell"><button class="btn-6">Shadow</button></div>
+      <div class="cell"><button class="btn-7">3D Push</button></div>
+      <div class="cell"><button class="btn-8">Neumorphic</button></div>
+      <div class="cell"><button class="btn-9">Underline</button></div>
+      <div class="cell"><button class="btn-10">Dashed</button></div>
+      <div class="cell"><button class="btn-11">Dark</button></div>
+      <div class="cell"><button class="btn-12">Pastel</button></div>
+      <div class="cell"><button class="btn-13">Glass</button></div>
+      <div class="cell">
+        <button class="btn-14">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          Add
+        </button>
+      </div>
+      <div class="cell"><button class="btn-15">Loading</button></div>
+      <div class="cell">
+        <button class="btn-16"><span>Skewed</span></button>
+      </div>
+      <div class="cell"><button class="btn-17">Brutalist</button></div>
+      <div class="cell"><button class="btn-18">Glow</button></div>
+      <div class="cell"><button class="btn-19">Learn more</button></div>
+      <div class="cell"><button class="btn-20">Duo-tone</button></div>
+    </div>
+  </body>
+</html>
